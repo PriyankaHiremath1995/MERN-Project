@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
 
 import './LandingPage.css';
 
-const LandingPage = () => {
+const LandingPage = ({history}) => {
+
+  // useEffect(() => {
+  //   const userInfo = localStorage.getItem("userInfo");
+
+  //   if(userInfo){
+  //     history.push("/message")
+  //   }
+  // },[history])
+
   return (
     <div className="main">
       <Container>
@@ -14,8 +23,13 @@ const LandingPage = () => {
                     <p className='subtitle'>Convey your Opinion to the ADMIN</p>
                     <div className='buttonContainer'>
                         <a href="/login">
-                            <Button size='lg'>
+                            <Button size='lg' className="landingbutton">
                                 Login
+                            </Button>
+                        </a>
+                        <a href="/register">
+                            <Button variant="outline-primary"size="lg" className="landingbutton">
+                                Sign up
                             </Button>
                         </a>
                     </div>
