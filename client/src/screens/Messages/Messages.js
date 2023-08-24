@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteMessageAction, listMessage } from '../../actions/messageActions';
 import ErrorMessage from '../../components/ErrorMessage';
 import Loading from '../../components/Loading';
+import moment from "moment";
 
 
 const Messages = () => {
@@ -57,7 +58,8 @@ const Messages = () => {
         successCreate,
         successUpdate,,navigate,userInfo])
 
-        const admin = (userInfo.email === "CPM@gmail.com")? true : false
+        const admin = (userInfo.email === "CPM@gmail.com")? true : false;
+
   return (
     <MainScreen title = {`Welcome Back ${userInfo.name}`}>
       <Link to="/createNewMessage">
@@ -101,7 +103,7 @@ const Messages = () => {
                 <footer className="blockquote-footer">
                         Created on{" "}
                         <cite title="Source Title">
-                          {note.createdAt.substring(0, 10)}
+                        {moment(new Date(note.createdAt)).format('DD-MM-YYYY HH:mm:ss') }
                         </cite>
                       </footer>
             </blockquote>
